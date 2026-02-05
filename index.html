@@ -1029,12 +1029,50 @@
                 grid-template-columns: 1fr;
             }
         }
+
+/* Hide hamburger on desktop */
+.menu-btn{
+font-size:26px;
+cursor:pointer;
+display:none;
+color:white;
+}
+
+/* Mobile settings */
+@media(max-width:768px){
+
+.menu-btn{
+display:block;
+}
+
+/* hide menu by default */
+.nav-links{
+display:none;
+flex-direction:column;
+background:black;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+padding:15px;
+}
+
+/* show menu when clicked */
+.nav-links.active{
+display:flex;
+}
+
+}
+
+
+
     </style>
 </head>
 <body>
     <nav class="nav">
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
         <div class="logo">MUSCLEHUB</div>
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
             <a href="#home">Home</a>
             <a href="#products">Products</a>
             <a href="#features">Why Us</a>
@@ -1550,6 +1588,10 @@
                 ticking = true;
             }
         });
+
+        function toggleMenu(){
+            document.getElementById("navLinks").classList.toggle("active");
+        }
     </script>
 </body>
 </html>
