@@ -1064,25 +1064,91 @@ display:flex;
 
 }
 
+.nav{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:rgba(0,0,0,0.95);
+z-index:1000;
+}
 
+/* PERFECT CENTER LOGO */
+.logo{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+font-size:28px;
+font-weight:900;
+}
 
-    </style>
+/* cart right */
+.cart-icon{
+margin-left:auto;
+cursor:pointer;
+font-size:22px;
+}
+
+/* mobile menu */
+.nav-links{
+display:flex;
+gap:40px;
+}
+
+/* MOBILE FIX */
+@media(max-width:768px){
+
+.nav-links{
+display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:black;
+padding:20px;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.menu-btn{
+display:block;
+}
+
+}
+
+  </style>
 </head>
 <body>
     <nav class="nav">
-        <div class="menu-btn" onclick="toggleMenu()">☰</div>
-        <div class="logo">MUSCLEHUB</div>
-        <div class="nav-links" id="navLinks">
-            <a href="#home">Home</a>
-            <a href="#products">Products</a>
-            <a href="#features">Why Us</a>
-            <a href="#reviews">Reviews</a>
-            <div class="cart-icon" onclick="toggleCart()">
-                🛒
-                <span class="cart-count" id="cartCount">0</span>
-            </div>
-        </div>
-    </nav>
+
+    <!-- LEFT: hamburger -->
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <!-- CENTER: logo -->
+    <div class="logo">MUSCLEHUB</div>
+
+    <!-- RIGHT: cart -->
+    <div class="cart-icon" onclick="toggleCart()">
+        🛒
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#features">Why Us</a>
+        <a href="#reviews">Reviews</a>
+    </div>
+
+</nav>
+
 
     <section class="hero" id="home">
         <div class="hero-bg">
@@ -1592,6 +1658,10 @@ display:flex;
         function toggleMenu(){
             document.getElementById("navLinks").classList.toggle("active");
         }
+
+        function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("active");
+}
     </script>
 </body>
 </html>
